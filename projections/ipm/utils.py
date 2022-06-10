@@ -215,7 +215,7 @@ class Plane:
     def xyz_coord(self):
         """
         Returns:
-            Grid coordinate: [b, 3/4, row*cols]
+            Grid coordinate: [3/4, row*cols]
         """
         xmin = self.x
         xmax = self.x + self.col * self.scale
