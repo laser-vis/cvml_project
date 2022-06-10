@@ -6,7 +6,7 @@ from utils import perspective, Plane, load_camera_params, bilinear_sampler, warp
 
 image = cv2.cvtColor(cv2.imread('stuttgart_01_000000_003715_leftImg8bit.png'), cv2.COLOR_BGR2RGB)
 interpolation_fn = bilinear_sampler  # or warped
-TARGET_H, TARGET_W = 500, 500
+TARGET_H, TARGET_W = 500, 800
 
 
 def ipm_from_parameters(image, xyz, K, RT, interpolation_fn):
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # Derived method
     ################
     # Define the plane on the region of interest (road)
-    plane = Plane(0, -25, 0, 0, 0, 0, TARGET_H, TARGET_W, 0.1)
+    plane = Plane(0, -25, 0, 0, 0, 0, TARGET_W, TARGET_H, 0.1)
     # Retrieve camera parameters
     extrinsic, intrinsic = load_camera_params('camera.json')
     # Apply perspective transformation
