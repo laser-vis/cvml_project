@@ -74,7 +74,7 @@ def load_camera_params(file):
     T_veh2cam = translation_matrix((-x, -y, -z))
 
     # Rotate to camera coordinates
-    R = np.array([[0., -1., 0., 0.],
+    R = np.array([[0., 1., 0., 0.],
                   [0., 0., -1., 0.],
                   [1., 0., 0., 0.],
                   [0., 0., 0., 1.]])

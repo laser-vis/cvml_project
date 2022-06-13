@@ -10,9 +10,6 @@ TARGET_H, TARGET_W = 500, 800
 
 
 def ipm_from_parameters(image, xyz, K, RT, interpolation_fn):
-    # Flip y points positive upwards
-    xyz[1] = -xyz[1]
-
     P = K @ RT
     pixel_coords = perspective(xyz, P, TARGET_H, TARGET_W)
     image2 = interpolation_fn(image, pixel_coords)
