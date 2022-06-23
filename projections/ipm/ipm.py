@@ -8,7 +8,7 @@ image = cv2.cvtColor(
     cv2.imread("stuttgart_01_000000_003715_leftImg8bit.png"), cv2.COLOR_BGR2RGB
 )
 interpolation_fn = bilinear_sampler  # or warped
-TARGET_H, TARGET_W = 500, 800
+TARGET_H, TARGET_W = 500, 600
 
 
 def ipm_from_parameters(image, xyz, K, RT, interpolation_fn):
@@ -65,6 +65,7 @@ if __name__ == "__main__":
 
     # Warp the image
     warped2 = ipm_from_opencv(image, s, t)
+    cv2.imwrite("warped2.png", cv2.cvtColor(warped2, cv2.COLOR_RGB2BGR))
 
     # Draw results
     fig, ax = plt.subplots(1, 3)
